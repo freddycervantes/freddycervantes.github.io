@@ -25,8 +25,8 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="index.html">This is Massively</a></li>
-							<li class="active"><a href="generic.html">Generic Page</a></li>
+							<li><a href="index.html">About Me</a></li>
+							<li class="active"><a href="mywork.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>
 						</ul>
 						<ul class="icons">
@@ -60,47 +60,44 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSesz4lB1FLUZltY0g6ZyirlVPdU8NLBBXPijFUbQTDIYQa_HQ/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
 								<div class="fields">
 									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
+										<label for="entry.533772246">Name</label>
+										<input type="text" name="entry.533772246" id="entry.533772246" placeholder="John Doe" required/>
 									</div>
 									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
+										<label for="entry.1538451903">Email</label>
+										<input type="text" name="entry.1538451903" id="entry.1538451903" placeholder="example@gmail.com" required/>
 									</div>
 									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
+										<label for="entry.1589381013">Message</label>
+										<textarea name="entry.1589381013" id="entry.1589381013" rows="3"></textarea>
 									</div>
 								</div>
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
+									<li><input type="reset" value="Reset" /></li>
 								</ul>
 							</form>
+							<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 						</section>
 						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
 							<section>
 								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
+								<p><a href="#">(661) 808-4355</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
+								<p><a href="#">freddycervantes@berkeley.edu</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://twitter.com/FreddyCervante6" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.linkedin.com/in/freddycervantes/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://www.instagram.com/fredmachine/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/freddycervantes" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
 						</section>
@@ -121,6 +118,20 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				$('#gform').on('submit', function(e) {
+					$('#gform *').fadeOut(2000);
+					$('#gform').prepend('Thank you for submitting your message, it has been processed. You will receive a response within 72 hours.');
+				});
+			</script>
+			<script language="JavaScript">
+				var frmvalidator  = new Validator("contactform");
+				frmvalidator.addValidation("entry.533772246","req","Please enter fullname");
+				frmvalidator.addValidation("entry.1538451903","req","Please enter an email");
+				frmvalidator.addValidation("entry.2031095529","email",
+						"Please enter a valid email");
+				frmvalidator.addValidation("entry.1589381013","req", "Message required")
+			</script>
 
 	</body>
 </html>
