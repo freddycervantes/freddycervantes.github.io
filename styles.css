@@ -50,6 +50,8 @@ body{
 .topnav {
     overflow: hidden;
     background-color: #1f282d;
+    box-shadow: 0 0 10px #182025;
+    width: 100%;
 }
 #navigation-container li a:hover, a:active {
     background-color: #86c68f;
@@ -94,8 +96,9 @@ body{
 
 .sticky {
     position: fixed;
+    margin-top: 0.5em;
     top: 0;
-    width: 100%;
+    left: 0; right: 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -111,6 +114,12 @@ body{
 
     .logo-img{
         display: flex;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 84%;
     }
 
     .first-tab{
