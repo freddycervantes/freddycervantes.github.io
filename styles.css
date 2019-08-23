@@ -1,0 +1,134 @@
+/*Screen size break points*/
+/*Small (smaller than 640px)*/
+/*Medium (641px to 1007px)*/
+/*Large (1008px and larger)*/
+
+body{
+    background-color: #171717;
+    font-family: "Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.head-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.col {
+    text-align: left;
+    vertical-align: middle;
+    grid-auto-rows: 1em;
+}
+
+.logo-img{
+    height: 40px;
+    vertical-align: middle;
+    padding: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    float: left;
+    display: none;
+}
+
+.hidden{
+    display: flex;
+}
+
+.header {
+    color: #f1f1f1;
+    padding: 30px;
+    text-align: left;
+}
+
+.logo {
+    height: 150px;
+    padding-bottom: 2em;
+    padding-top: 2em
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #1f282d;
+}
+#navigation-container li a:hover, a:active {
+    background-color: #86c68f;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 17px;
+    width: 70px;
+    border-right: 2px solid #171717;
+}
+
+.topnav a:hover {
+    background-color: #86c68f;
+    color: #f2f2f2;
+}
+
+.topnav a.active {
+    background-color: #86c68f;
+    color: #f2f2f2;
+}
+
+.first-tab{
+    border-left: 2px solid #171717;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .logo {
+        display: none;
+    }
+
+    .logo-img{
+        display: flex;
+    }
+
+    .first-tab{
+        border-left: none;
+    }
+
+    .logo-img.responsive {
+        display: none;
+    }
+
+    .topnav a {
+        border-right: none;
+        width: auto;
+
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
