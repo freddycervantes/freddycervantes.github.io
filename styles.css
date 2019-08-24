@@ -51,11 +51,9 @@ body{
     overflow: hidden;
     background-color: #1f282d;
     box-shadow: 0 0 10px #182025;
-    width: 100%;
+    width: 91%;
 }
-#navigation-container li a:hover, a:active {
-    background-color: #86c68f;
-}
+
 .topnav a {
     float: left;
     display: block;
@@ -69,13 +67,12 @@ body{
 }
 
 .topnav a:hover {
-    background-color: #86c68f;
+    background-color: #70c989;
     color: #f2f2f2;
 }
 
 .topnav a.active {
-    background-color: #86c68f;
-    color: #f2f2f2;
+    border-bottom: 1px solid #70c989;
 }
 
 .first-tab{
