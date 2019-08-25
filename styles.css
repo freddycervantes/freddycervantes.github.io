@@ -1,140 +1,367 @@
-/*Screen size break points*/
-/*Small (smaller than 640px)*/
-/*Medium (641px to 1007px)*/
-/*Large (1008px and larger)*/
+/*!*Screen size break points*!*/
+/*!*Small (smaller than 640px)*!*/
+/*!*Medium (641px to 1007px)*!*/
+/*!*Large (1008px and larger)*!*/
 
-body{
-    background-color: #171717;
-    font-family: "Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif;
-    margin-right: 50px;
-    margin-left: 50px;
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-.head-grid {
-    display: grid;
-    grid-template-columns: auto auto;
+/*-----------------*/
+#nav{
+height:50px;
+}
+#nav-ul {
+height:100%;
 }
 
-.col {
-    text-align: left;
-    vertical-align: middle;
-    grid-auto-rows: 1em;
+.li-a{
+    height: 100%;
+    border-left: 2px solid #171717;
 }
 
-.logo-img{
-    height: 40px;
-    vertical-align: middle;
-    padding: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
-    float: left;
-    display: none;
+
+.main_h {
+    position: fixed;
+    top: 0px;
+    max-height: 50px;
+    z-index: 999;
+    width: 100%;
+    background: none;
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+    top: -100px;
+    font-family: "Montserrat", sans-serif;
+}
+@media only screen and (max-width: 766px) {
+    .main_h {
+        padding: 0 0 10px 10px;
+    }
+    #nav{
+        height:auto;
+    }
 }
 
-.hidden{
-    display: flex;
+.open-nav {
+    max-height: 400px !important;
+}
+.open-nav .mobile-toggle {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
 }
 
-.header {
-    color: #f1f1f1;
-    padding: 30px;
-    text-align: left;
+.sticky {
+    background-color: #1f282d;
+    opacity: 1;
+    top: 0px ;
+    /*border-bottom: 1px solid gainsboro;*/
 }
 
 .logo {
-    height: 150px;
-    padding-bottom: 2em;
-    padding-top: 2em
-}
-
-.topnav {
-    overflow: hidden;
-    background-color: #1f282d;
-    box-shadow: 0 0 10px #182025;
-    width: 91%;
-}
-
-.topnav a {
+    padding-top: 2px;
+    width: 60px;
+    font-size: 25px;
+    color: #8f8f8f;
+    text-transform: uppercase;
     float: left;
     display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 17px;
-    width: 70px;
-    border-right: 2px solid #171717;
+    margin-top: 0;
+    line-height: 1;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+@media only screen and (max-width: 766px) {
+    .logo {
+        float: none;
+    }
 }
 
-.topnav a:hover {
+nav {
+    float: left;
+}
+@media only screen and (max-width: 766px) {
+    nav {
+        width: 100%;
+    }
+}
+
+/*li { padding: 0; }*/
+li a { display: block; padding: 1em; }
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    text-align: center;
+    float: right;
+}
+@media only screen and (max-width: 766px) {
+    nav ul {
+        /*padding-top: 10px;*/
+        /*margin-bottom: 22px;*/
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+}
+nav ul li {
+    display: inline-block;
+    width: 150px;
+    line-height: 1.5;
+    height: 100%;
+}
+@media only screen and (max-width: 766px) {
+    nav ul li {
+        width: 100%;
+        margin: 0;
+    }
+
+    nav ul li a{
+        width: 100%;
+    }
+}
+nav ul a {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 12px;
+    height: 100%;
+}
+
+nav ul a:hover {
     background-color: #70c989;
     color: #f2f2f2;
 }
 
-.topnav a.active {
+nav ul a.active {
     border-bottom: 1px solid #70c989;
 }
 
-.first-tab{
-    border-left: 2px solid #171717;
-}
-
-.topnav .icon {
+.mobile-toggle {
+    padding-top: 15px;
     display: none;
-}
-
-@media screen and (max-width: 800px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-        float: right;
-        display: block;
-    }
-}
-
-.sticky {
-    position: fixed;
-    margin-top: 0.5em;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 22px;
     top: 0;
-    left: 0; right: 0;
+    width: 30px;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+}
+@media only screen and (max-width: 766px) {
+    .mobile-toggle {
+        display: block;
+    }
+}
+.mobile-toggle span {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 6px;
+    border-radius: 1000px;
+    background: #8f8f8f;
+    display: block;
 }
 
-@media screen and (max-width: 800px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
+.row {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #ffffff;
+    background: #171717;
+    font-family: "Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif;
+    /*margin-top: 1em;*/
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 2;
+}
+
+.content {
+    padding: 50px 2% 250px;
+}
+
+.hero {
+    position: relative;
+    /*background: url('./videos/zip_Aloha-Mundo/Snapshots/Aloha-Mundo.jpg') no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    padding-top: 110px;
+    min-height: 500px;
+    letter-spacing: 2px;
+    font-family: "Montserrat", sans-serif;
+}
+.hero h1 {
+    font-size: 50px;
+    line-height: 1.3;
+    position: relative;
+}
+.hero h1 span {
+    font-size: 25px;
+    color: #e8f380;
+    border-bottom: 2px solid #e8f380;
+    padding-bottom: 12px;
+    line-height: 3;
+}
+
+.mouse {
+    display: block;
+    margin: 0 auto;
+    width: 26px;
+    height: 46px;
+    border-radius: 13px;
+    border: 2px solid #e8f380;
+    position: absolute;
+    bottom: 40px;
+    position: absolute;
+    left: 50%;
+    margin-left: -26px;
+}
+.mouse span {
+    display: block;
+    margin: 6px auto;
+    width: 2px;
+    height: 2px;
+    border-radius: 4px;
+    background: #e8f380;
+    border: 1px solid transparent;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+}
+
+@-webkit-keyframes scroll {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
     }
-    .logo {
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+        height: 400px;
+        top: -100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+        width: 300%;
+        left: -100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .fullscreen-bg {
+        background: url('./videos/zip_Aloha-Mundo/Snapshots/Aloha-Mundo.jpg') center center / cover no-repeat;
+    }
+
+    .fullscreen-bg__video {
         display: none;
     }
+}
 
-    .logo-img{
-        display: flex;
-    }
-
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 84%;
-    }
-
-    .first-tab{
-        border-left: none;
-    }
-
-    .logo-img.responsive {
-        display: none;
-    }
-
-    .topnav a {
-        border-right: none;
-        width: auto;
-
-    }
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 500px;
 }
