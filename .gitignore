@@ -1,0 +1,27 @@
+# Jekyll build artifacts
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Node modules and lock files
+node_modules/
+package-lock.json
+
+# Ruby bundler
+vendor/bundle/
+.bundle/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Personal notes and planning
+thoughts/

@@ -1,0 +1,70 @@
+# Site settings
+title: Freddy Cervantes
+email: your-email@example.com
+description: Software Engineer & Developer
+baseurl: ""
+url: "https://freddycervantes.github.io"
+github_username: freddycervantes
+linkedin_username: freddycervantes
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Exclude from build
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js
+  - Makefile
+  - README.md
+  - CONTRIBUTING.md
+  - DEPLOYMENT.md
+  - scripts
+
+# SEO and Social
+lang: en
+timezone: America/Los_Angeles
+
+social:
+  name: Freddy Cervantes
+  links:
+    - https://github.com/freddycervantes
+    - https://linkedin.com/in/freddycervantes
+
+# SEO tag settings
+twitter:
+  username: your_twitter
+  card: summary_large_image
+
+# Defaults for SEO
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-og-image.png

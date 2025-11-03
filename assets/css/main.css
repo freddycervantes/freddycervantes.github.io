@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 255 255 255;
+    --color-bg-secondary: 243 244 246;
+    --color-text: 31 41 55;
+    --color-text-secondary: 107 114 128;
+    --color-primary: 59 130 246;
+  }
+
+  .dark {
+    --color-bg: 15 23 42;
+    --color-bg-secondary: 30 41 59;
+    --color-text: 241 245 249;
+    --color-text-secondary: 203 213 225;
+    --color-primary: 96 165 250;
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-100 transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+  }
+}
+
+/* Custom prose styling for dark mode */
+.prose {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply text-gray-900 dark:text-white;
+}
+
+.prose a {
+  @apply text-blue-500 dark:text-blue-400 no-underline hover:underline;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-gray-100 dark:bg-slate-800;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic text-gray-700 dark:text-gray-300;
+}
+
+.prose img {
+  @apply rounded-lg shadow-md;
+}
+
+.prose strong {
+  @apply text-gray-900 dark:text-white font-semibold;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "freddycervantes-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/main.css -o ./_site/assets/css/styles.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/main.css -o ./assets/css/styles.css --watch",
+    "build": "npm run build:css && bundle exec jekyll build",
+    "serve": "npm run watch:css & bundle exec jekyll serve --livereload"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  }
+}

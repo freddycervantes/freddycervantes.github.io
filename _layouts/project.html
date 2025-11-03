@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<article class="py-16 md:py-24 bg-white dark:bg-slate-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Back Button -->
+      <a href="{{ '/projects' | relative_url }}" class="inline-flex items-center text-blue-500 dark:text-blue-400 hover:underline mb-8">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Projects
+      </a>
+
+      <!-- Project Header -->
+      <header class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          {{ page.title }}
+        </h1>
+
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
+          {{ page.description }}
+        </p>
+
+        <!-- Tags -->
+        {% if page.tags %}
+        <div class="flex flex-wrap gap-2 mb-6">
+          {% for tag in page.tags %}
+          <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">
+            {{ tag }}
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Links -->
+        <div class="flex gap-4">
+          {% if page.link %}
+          <a href="{{ page.link }}" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            View Live Demo
+          </a>
+          {% endif %}
+
+          {% if page.github_url %}
+          <a href="{{ page.github_url }}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-white rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors">
+            View on GitHub
+          </a>
+          {% endif %}
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      {% if page.image %}
+      <div class="mb-12 rounded-lg overflow-hidden shadow-lg">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full">
+      </div>
+      {% endif %}
+
+      <!-- Project Content -->
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>

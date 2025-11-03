@@ -1,0 +1,82 @@
+---
+layout: default
+title: Projects
+---
+
+<section class="py-16 md:py-24 bg-white dark:bg-slate-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          Projects
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          A collection of projects I've worked on, from web applications to open-source contributions.
+        </p>
+      </div>
+
+      <!-- Filter Tags (Optional) -->
+      <div class="mb-12">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button class="filter-btn active" data-filter="all">
+            All
+          </button>
+          {% assign all_tags = site.projects | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+          {% for tag in all_tags %}
+          <button class="filter-btn" data-filter="{{ tag }}">
+            {{ tag }}
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+        {% for project in site.projects %}
+        <div class="project-item" data-tags="{{ project.tags | join: ',' }}">
+          {% include project-card.html project=project %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter projects
+        projectItems.forEach(item => {
+          const tags = item.dataset.tags;
+          if (filter === 'all' || tags.includes(filter)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-btn {
+    @apply px-4 py-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors;
+  }
+
+  .filter-btn.active {
+    @apply bg-blue-500 dark:bg-blue-600 text-white hover:bg-blue-600 dark:hover:bg-blue-700;
+  }
+</style>

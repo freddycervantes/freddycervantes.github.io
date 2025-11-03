@@ -1,152 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    /* Extra small devices (phones, less than 768px) */-->
-<!--    /* No media query since this is the default in Bootstrap */-->
+---
+layout: default
+---
 
-<!--    /* Small devices (tablets, 768px and up) */-->
-<!--    @media (min-width: @screen-sm-min) { ... }-->
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 py-20 md:py-32">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+        Hi, I'm <span class="text-blue-500 dark:text-blue-400">{{ site.title }}</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+        Software Engineer building modern web applications
+      </p>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+        {{ site.description }}. I love creating elegant solutions to complex problems.
+      </p>
 
-<!--    /* Medium devices (desktops, 992px and up) */-->
-<!--    @media (min-width: @screen-md-min) { ... }-->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{{ '/projects' | relative_url }}" class="btn-primary">
+          View Projects
+        </a>
+        <a href="{{ '/blog' | relative_url }}" class="px-6 py-3 bg-white dark:bg-slate-800 text-blue-500 dark:text-blue-400 rounded-lg border-2 border-blue-500 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors duration-200">
+          Read Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
-<!--    /* Large devices (large desktops, 1200px and up) */-->
-    <title>Freddy Cervantes</title>
-    <link rel="icon" href="./image/logo3.ico">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
-</head>
+  <!-- Decorative Element -->
+  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-slate-900"></div>
+</section>
 
-<body>
-<header class="main_h">
-    <div class="row">
-        <a class="logo" href="#"><img class="logo" id="logo" src="images/logo.png" alt="logo"/></a>
-
-        <div class="mobile-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <nav id="nav">
-            <ul id="nav-ul">
-                <li><a class="li-a" href=".sec01">About</a></li>
-                <li><a class="li-a" href=".sec02">Work</a></li>
-                <li><a class="li-a" href=".sec03">News</a></li>
-                <li><a class="li-a" href=".sec04">Contact</a></li>
-            </ul>
-
-        </nav>
-
-    </div> <!-- / row -->
-<div class="row">
-
-</div>
-</header>
-
-<div class="hero">
-        <video autoplay muted loop id="myVideo">
-            <source src="videos/zip_Aloha-Mundo/MP4/Aloha-Mundo.mp4" type="video/mp4">
-        </video>
-    <h1><span>I'm Freddy Cervantes</span><br>Software Engineer</h1>
-
-    <div class="mouse">
-        <span></span>
+<!-- Featured Projects -->
+<section class="py-16 md:py-24 bg-white dark:bg-slate-900">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+        Featured Projects
+      </h2>
+      <a href="{{ '/projects' | relative_url }}" class="text-blue-500 dark:text-blue-400 hover:underline font-medium">
+        View all →
+      </a>
     </div>
 
-</div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% assign featured_projects = site.projects | where: "featured", true | limit: 3 %}
+      {% for project in featured_projects %}
+        {% include project-card.html project=project %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-<div class="row content">
-    <h1 class="sec01">Welcome!</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur. Sit, eius, itaque, porro, beatae impedit officia tenetur reiciendis autem vitae a quae ipsam repudiandae odio dolorum quaerat asperiores possimus corporis optio animi quisquam laboriosam nihil quam voluptatum quidem veritatis iste culpa iure modi perspiciatis recusandae ipsa libero officiis aliquam doloremque similique id quasi atque distinctio enim sapiente ratione in quia eum perferendis earum blanditiis. Nobis, architecto, veniam molestias minus iste necessitatibus est ab in earum ratione eveniet soluta molestiae sed illo nostrum nemo debitis. Minus, quod totam aliquam ea asperiores fugit quaerat excepturi dolores ratione numquam consequatur id unde alias provident vero incidunt exercitationem similique consequuntur hic possimus? Fuga, eveniet quaerat inventore corporis laborum eligendi enim soluta obcaecati aliquid veritatis provident amet laudantium est quisquam dolore exercitationem modi? Distinctio, pariatur, ab velit praesentium vitae quidem consequatur deleniti recusandae odit officiis. Quidem, cupiditate.</p>
-    <h1 class="sec02">Things I do</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur. Sit, eius, itaque, porro, beatae impedit officia tenetur reiciendis autem vitae a quae ipsam repudiandae odio dolorum quaerat asperiores possimus corporis optio animi quisquam laboriosam nihil quam voluptatum quidem veritatis iste culpa iure modi perspiciatis recusandae ipsa libero officiis aliquam doloremque similique id quasi atque distinctio enim sapiente ratione in quia eum perferendis earum blanditiis. Nobis, architecto, veniam molestias minus iste necessitatibus est ab in earum ratione eveniet soluta molestiae sed illo nostrum nemo debitis. Minus, quod totam aliquam ea asperiores fugit quaerat excepturi dolores ratione numquam consequatur id unde alias provident vero incidunt exercitationem similique consequuntur hic possimus? Fuga, eveniet quaerat inventore corporis laborum eligendi enim soluta obcaecati aliquid veritatis provident amet laudantium est quisquam dolore exercitationem modi? Distinctio, pariatur, ab velit praesentium vitae quidem consequatur deleniti recusandae odit officiis. Quidem, cupiditate.</p>
-    <h1 class="sec03">Recent Endeavours</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur. Sit, eius, itaque, porro, beatae impedit officia tenetur reiciendis autem vitae a quae ipsam repudiandae odio dolorum quaerat asperiores possimus corporis optio animi quisquam laboriosam nihil quam voluptatum quidem veritatis iste culpa iure modi perspiciatis recusandae ipsa libero officiis aliquam doloremque similique id quasi atque distinctio enim sapiente ratione in quia eum perferendis earum blanditiis. Nobis, architecto, veniam molestias minus iste necessitatibus est ab in earum ratione eveniet soluta molestiae sed illo nostrum nemo debitis. Minus, quod totam aliquam ea asperiores fugit quaerat excepturi dolores ratione numquam consequatur id unde alias provident vero incidunt exercitationem similique consequuntur hic possimus? Fuga, eveniet quaerat inventore corporis laborum eligendi enim soluta obcaecati aliquid veritatis provident amet laudantium est quisquam dolore exercitationem modi? Distinctio, pariatur, ab velit praesentium vitae quidem consequatur deleniti recusandae odit officiis. Quidem, cupiditate.</p>
-    <h1 class="sec04">Contact me</h1>
-    <section>
-        <form class="my-form" name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSesz4lB1FLUZltY0g6ZyirlVPdU8NLBBXPijFUbQTDIYQa_HQ/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
-            <div>
-                <ul>
-                    <li>
-                        <div class="grid grid-2">
-                            <input type="text" name="entry.533772246" id="entry.533772246" placeholder="Full Name" required/>
-                            <input type="text" name="entry.1538451903" id="entry.1538451903" placeholder="Email" required/>
-                        </div>
-                    </li>
-                    <li>
-                        <textarea name="entry.1589381013" id="entry.1589381013" rows="3" placeholder="Message" required></textarea>
-                    </li>
-                    <li>
-                        <div class="grid grid-3">
-                            <div class="required-msg">REQUIRED FIELDS</div>
-                            <button class="btn-grid" type="submit" >
-                                <span class="front">SUBMIT</span>
-                            </button>
-                            <button class="btn-grid" type="reset" >
-                                <span class="front">RESET</span>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </form>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
-    </section>
-    <footer>
-        <div>
-            <nav id="nav">
-                <ul id="nav-ul">
-<!--                    <li class="li-a"><a href="https://twitter.com/FreddyCervante6" class="icon brands alt">-->
-<!--                    <span class="fa-stack fa-lg">-->
-<!--                      <i class="fa fa-circle-thin fa-stack-2x"></i>-->
-<!--                      <i class="fa fa-twitter fa-stack-1x"></i>-->
-<!--                    </span>-->
-<!--                    </a></li>-->
-                    <li class="li-a"><a href="https://www.linkedin.com/in/freddycervantes/" class="icon brands alt">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle-thin fa-stack-2x"></i>
-                      <i class="fa fa-linkedin fa-stack-1x"></i>
-                    </span>
-                    </a></li>
-                    <li class="li-a"><a href="https://www.instagram.com/fredmachine/" class="icon brands alt">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle-thin fa-stack-2x"></i>
-                      <i class="fa fa-instagram fa-stack-1x"></i>
-                    </span>
-                    </a></li>
-                    <li class="li-a"><a href="https://github.com/freddycervantes" class="icon brands alt">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle-thin fa-stack-2x"></i>
-                      <i class="fa fa-github fa-stack-1x"></i>
-                    </span>
-                    </a></li>
-                </ul>
+<!-- Featured Blog Posts -->
+<section class="py-16 md:py-24 bg-gray-50 dark:bg-slate-800">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+        Recent Posts
+      </h2>
+      <a href="{{ '/blog' | relative_url }}" class="text-blue-500 dark:text-blue-400 hover:underline font-medium">
+        View all →
+      </a>
+    </div>
 
-            </nav>
-        </div>
-    </footer>
-</div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for post in site.posts limit:3 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-</div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript" src="./main.js"></script>
-<script type="text/javascript">
-    $('#gform').on('submit', function(e) {
-        $('#gform *').fadeOut(2000);
-        $('#gform').prepend('Thank you for submitting your message, it has been processed. You will receive a response within 72 hours.');
-    });
-</script>
-<script language="JavaScript">
-    var frmvalidator  = new Validator("contactform");
-    frmvalidator.addValidation("entry.533772246","req","Please enter fullname");
-    frmvalidator.addValidation("entry.1538451903","req","Please enter an email");
-    frmvalidator.addValidation("entry.2031095529","email",
-        "Please enter a valid email");
-    frmvalidator.addValidation("entry.1589381013","req", "Message required")
-</script>
-</html>
+<!-- Contact Section -->
+<section class="py-16 md:py-24 bg-white dark:bg-slate-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+        Get In Touch
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+        Interested in working together? Feel free to reach out!
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:{{ site.email }}" class="btn-primary">
+          Send Email
+        </a>
+        {% if site.linkedin_username %}
+        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-white dark:bg-slate-800 text-blue-500 dark:text-blue-400 rounded-lg border-2 border-blue-500 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors duration-200">
+          Connect on LinkedIn
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
