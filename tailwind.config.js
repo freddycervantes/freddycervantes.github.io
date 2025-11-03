@@ -17,16 +17,17 @@ module.exports = {
         // Dark mode uses lighter surfaces for elevation (inverted)
 
         // Surface colors - multiple levels for depth
+        // Inspired by forward.digital's minimalist dark theme
         surface: {
           // Light mode
           'base-light': '#fafafa',      // Off-white background, not pure white
           'raised-light': '#ffffff',     // Elevated cards/sections
           'overlay-light': '#ffffff',    // Modals, dropdowns
 
-          // Dark mode (lighter = elevated)
-          'base-dark': '#0a0f1a',        // Very dark blue-gray, not pure black
-          'raised-dark': '#141b2d',      // Cards elevated from base
-          'overlay-dark': '#1e2842',     // Modals/overlays most elevated
+          // Dark mode (forward.digital inspired - very dark, clean)
+          'base-dark': '#111113',        // forward.digital's primary dark (#111113)
+          'raised-dark': '#1a1a1d',      // Slightly lighter for elevation
+          'overlay-dark': '#242428',     // Most elevated surfaces
         },
 
         // Text colors - hierarchy for readability
@@ -37,19 +38,19 @@ module.exports = {
           'tertiary-light': '#8b949e',   // Muted text (4.5:1 contrast)
           'disabled-light': '#d0d7de',   // Disabled state
 
-          // Dark mode (softer whites, not pure)
-          'primary-dark': '#e6edf3',     // Headings (17:1 contrast)
-          'secondary-dark': '#9198a1',   // Body text (7.5:1 contrast)
-          'tertiary-dark': '#7d8590',    // Muted text (4.8:1 contrast)
-          'disabled-dark': '#484f58',    // Disabled state
+          // Dark mode (forward.digital inspired - clean whites and grays)
+          'primary-dark': '#ffffff',     // Pure white for headings (clean, high contrast)
+          'secondary-dark': '#a0a0a0',   // Medium gray for body text
+          'tertiary-dark': '#707070',    // Muted gray for less important text
+          'disabled-dark': '#4a4a4a',    // Darker gray for disabled state
         },
 
         // Border colors
         stroke: {
           'default-light': '#d0d7de',
           'muted-light': '#e6e9ed',
-          'default-dark': '#30363d',
-          'muted-dark': '#21262d',
+          'default-dark': '#2a2a2d',     // Subtle borders in dark mode
+          'muted-dark': '#1f1f22',       // Very subtle borders
         },
 
         // Accent colors (adjusted saturation for dark mode)
@@ -57,8 +58,8 @@ module.exports = {
           // Primary blue - saturated in light, desaturated in dark
           'primary-light': '#0969da',
           'primary-light-hover': '#0550ae',
-          'primary-dark': '#4493f8',     // Less saturated for dark mode
-          'primary-dark-hover': '#539bf5',
+          'primary-dark': '#60a5fa',     // Clean blue accent for dark mode
+          'primary-dark-hover': '#3b82f6',
 
           // Success green
           'success-light': '#1a7f37',
@@ -66,11 +67,11 @@ module.exports = {
 
           // Warning amber
           'warning-light': '#bf8700',
-          'warning-dark': '#d29922',
+          'warning-dark': '#fbbf24',
 
           // Danger red
           'danger-light': '#cf222e',
-          'danger-dark': '#f85149',
+          'danger-dark': '#f87171',
         },
       },
       fontFamily: {
