@@ -1,6 +1,6 @@
 <article class="card overflow-hidden group">
   {% if include.post.image %}
-  <div class="aspect-video overflow-hidden bg-gray-200 dark:bg-slate-700">
+  <div class="aspect-video overflow-hidden" style="background-color: var(--surface-overlay);">
     <img src="{{ include.post.image | relative_url }}"
          alt="{{ include.post.title }}"
          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
@@ -8,7 +8,7 @@
   {% endif %}
 
   <div class="p-6">
-    <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-3">
+    <div class="flex items-center gap-2 text-sm mb-3" style="color: var(--ink-tertiary);">
       <time datetime="{{ include.post.date | date_to_xmlschema }}">
         {{ include.post.date | date: "%B %d, %Y" }}
       </time>
@@ -16,18 +16,18 @@
       <span>{% include reading-time.html content=include.post.content %}</span>
     </div>
 
-    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+    <h3 class="text-xl font-bold mb-2 transition-colors" style="color: var(--ink-primary);">
       <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
     </h3>
 
-    <p class="text-gray-600 dark:text-gray-400 mb-4">
+    <p class="mb-4" style="color: var(--ink-tertiary);">
       {{ include.post.excerpt | strip_html | truncatewords: 25 }}
     </p>
 
     {% if include.post.tags %}
     <div class="flex flex-wrap gap-2">
       {% for tag in include.post.tags %}
-      <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">
+      <span class="px-3 py-1 text-sm rounded-full" style="background-color: var(--surface-overlay); color: var(--accent-primary); border: 1px solid var(--stroke-muted);">
         {{ tag }}
       </span>
       {% endfor %}

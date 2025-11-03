@@ -3,64 +3,161 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * Semantic color tokens following EightShapes light/dark principles
+   * - Multiple surface levels for proper elevation
+   * - Off-white/off-black instead of pure colors
+   * - WCAG AA/AAA compliant contrast ratios
+   * - Desaturated colors in dark mode
+   * - Lighter surfaces = elevated (dark mode)
+   */
+
   :root {
-    --color-bg: 255 255 255;
-    --color-bg-secondary: 243 244 246;
-    --color-text: 31 41 55;
-    --color-text-secondary: 107 114 128;
-    --color-primary: 59 130 246;
+    /* Surface layers */
+    --surface-base: theme('colors.surface.base-light');
+    --surface-raised: theme('colors.surface.raised-light');
+    --surface-overlay: theme('colors.surface.overlay-light');
+
+    /* Text hierarchy */
+    --ink-primary: theme('colors.ink.primary-light');
+    --ink-secondary: theme('colors.ink.secondary-light');
+    --ink-tertiary: theme('colors.ink.tertiary-light');
+    --ink-disabled: theme('colors.ink.disabled-light');
+
+    /* Borders */
+    --stroke-default: theme('colors.stroke.default-light');
+    --stroke-muted: theme('colors.stroke.muted-light');
+
+    /* Accents */
+    --accent-primary: theme('colors.accent.primary-light');
+    --accent-primary-hover: theme('colors.accent.primary-light-hover');
+    --accent-success: theme('colors.accent.success-light');
+    --accent-warning: theme('colors.accent.warning-light');
+    --accent-danger: theme('colors.accent.danger-light');
   }
 
   .dark {
-    --color-bg: 15 23 42;
-    --color-bg-secondary: 30 41 59;
-    --color-text: 241 245 249;
-    --color-text-secondary: 203 213 225;
-    --color-primary: 96 165 250;
+    /* Surface layers - lighter = elevated in dark mode */
+    --surface-base: theme('colors.surface.base-dark');
+    --surface-raised: theme('colors.surface.raised-dark');
+    --surface-overlay: theme('colors.surface.overlay-dark');
+
+    /* Text hierarchy - softer whites */
+    --ink-primary: theme('colors.ink.primary-dark');
+    --ink-secondary: theme('colors.ink.secondary-dark');
+    --ink-tertiary: theme('colors.ink.tertiary-dark');
+    --ink-disabled: theme('colors.ink.disabled-dark');
+
+    /* Borders */
+    --stroke-default: theme('colors.stroke.default-dark');
+    --stroke-muted: theme('colors.stroke.muted-dark');
+
+    /* Accents - desaturated for dark mode */
+    --accent-primary: theme('colors.accent.primary-dark');
+    --accent-primary-hover: theme('colors.accent.primary-dark-hover');
+    --accent-success: theme('colors.accent.success-dark');
+    --accent-warning: theme('colors.accent.warning-dark');
+    --accent-danger: theme('colors.accent.danger-dark');
   }
 
   body {
-    @apply bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-100 transition-colors duration-200;
+    background-color: var(--surface-base);
+    color: var(--ink-secondary);
+    @apply transition-colors duration-200;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--ink-primary);
   }
 }
 
 @layer components {
+  /* Buttons using semantic tokens */
   .btn-primary {
-    @apply px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-200;
+    background-color: var(--accent-primary);
+    color: white;
+    @apply px-6 py-3 rounded-lg transition-all duration-200;
   }
 
+  .btn-primary:hover {
+    background-color: var(--accent-primary-hover);
+    @apply shadow-lg;
+  }
+
+  .btn-secondary {
+    background-color: var(--surface-raised);
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    @apply px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--surface-overlay);
+  }
+
+  /* Card component with proper elevation */
   .card {
-    @apply bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--stroke-muted);
+    @apply rounded-lg shadow-sm hover:shadow-lg transition-all duration-200;
+  }
+
+  /* Navigation link styling */
+  .nav-link {
+    color: var(--ink-secondary);
+    @apply transition-colors duration-200 font-medium;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-primary);
   }
 }
 
-/* Custom prose styling for dark mode */
+/* Custom prose styling using semantic tokens */
 .prose {
-  @apply text-gray-900 dark:text-gray-100;
+  color: var(--ink-secondary);
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4 {
-  @apply text-gray-900 dark:text-white;
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--ink-primary);
+  @apply font-bold;
 }
 
 .prose a {
-  @apply text-blue-500 dark:text-blue-400 no-underline hover:underline;
+  color: var(--accent-primary);
+  @apply no-underline hover:underline transition-colors duration-200;
+}
+
+.prose a:hover {
+  color: var(--accent-primary-hover);
 }
 
 .prose code {
-  @apply bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 px-1 py-0.5 rounded;
+  background-color: var(--surface-raised);
+  color: var(--ink-primary);
+  border: 1px solid var(--stroke-muted);
+  @apply px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
 .prose pre {
-  @apply bg-gray-100 dark:bg-slate-800;
+  background-color: var(--surface-raised);
+  border: 1px solid var(--stroke-default);
+  @apply rounded-lg p-4 overflow-x-auto;
 }
 
 .prose pre code {
-  @apply bg-transparent p-0;
+  @apply bg-transparent border-0 p-0;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic text-gray-700 dark:text-gray-300;
+  border-left: 4px solid var(--accent-primary);
+  color: var(--ink-tertiary);
+  @apply pl-4 italic my-4;
 }
 
 .prose img {
@@ -68,5 +165,32 @@
 }
 
 .prose strong {
-  @apply text-gray-900 dark:text-white font-semibold;
+  color: var(--ink-primary);
+  @apply font-semibold;
+}
+
+.prose ul,
+.prose ol {
+  color: var(--ink-secondary);
+}
+
+.prose hr {
+  border-color: var(--stroke-default);
+  @apply my-8;
+}
+
+.prose table {
+  @apply w-full;
+}
+
+.prose th {
+  background-color: var(--surface-raised);
+  color: var(--ink-primary);
+  border: 1px solid var(--stroke-default);
+  @apply px-4 py-2 text-left font-semibold;
+}
+
+.prose td {
+  border: 1px solid var(--stroke-default);
+  @apply px-4 py-2;
 }

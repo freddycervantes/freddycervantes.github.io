@@ -3,16 +3,16 @@ layout: default
 ---
 
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 py-20 md:py-32">
+<section class="relative py-20 md:py-32" style="background: linear-gradient(135deg, var(--surface-base) 0%, var(--surface-raised) 100%);">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-        Hi, I'm <span class="text-blue-500 dark:text-blue-400">{{ site.title }}</span>
+      <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color: var(--ink-primary);">
+        Hi, I'm <span style="color: var(--accent-primary);">{{ site.title }}</span>
       </h1>
-      <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+      <p class="text-xl md:text-2xl mb-8" style="color: var(--ink-secondary);">
         Software Engineer building modern web applications
       </p>
-      <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+      <p class="text-lg mb-12 max-w-2xl mx-auto" style="color: var(--ink-tertiary);">
         {{ site.description }}. I love creating elegant solutions to complex problems.
       </p>
 
@@ -20,7 +20,7 @@ layout: default
         <a href="{{ '/projects' | relative_url }}" class="btn-primary">
           View Projects
         </a>
-        <a href="{{ '/blog' | relative_url }}" class="px-6 py-3 bg-white dark:bg-slate-800 text-blue-500 dark:text-blue-400 rounded-lg border-2 border-blue-500 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors duration-200">
+        <a href="{{ '/blog' | relative_url }}" class="btn-secondary">
           Read Blog
         </a>
       </div>
@@ -28,17 +28,17 @@ layout: default
   </div>
 
   <!-- Decorative Element -->
-  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-slate-900"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to top, var(--surface-base) 0%, transparent 100%);"></div>
 </section>
 
 <!-- Featured Projects -->
-<section class="py-16 md:py-24 bg-white dark:bg-slate-900">
+<section class="py-16 md:py-24" style="background-color: var(--surface-base);">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+      <h2 class="text-3xl md:text-4xl font-bold" style="color: var(--ink-primary);">
         Featured Projects
       </h2>
-      <a href="{{ '/projects' | relative_url }}" class="text-blue-500 dark:text-blue-400 hover:underline font-medium">
+      <a href="{{ '/projects' | relative_url }}" class="font-medium hover:underline" style="color: var(--accent-primary);">
         View all →
       </a>
     </div>
@@ -53,13 +53,13 @@ layout: default
 </section>
 
 <!-- Featured Blog Posts -->
-<section class="py-16 md:py-24 bg-gray-50 dark:bg-slate-800">
+<section class="py-16 md:py-24" style="background-color: var(--surface-raised);">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+      <h2 class="text-3xl md:text-4xl font-bold" style="color: var(--ink-primary);">
         Recent Posts
       </h2>
-      <a href="{{ '/blog' | relative_url }}" class="text-blue-500 dark:text-blue-400 hover:underline font-medium">
+      <a href="{{ '/blog' | relative_url }}" class="font-medium hover:underline" style="color: var(--accent-primary);">
         View all →
       </a>
     </div>
@@ -73,13 +73,13 @@ layout: default
 </section>
 
 <!-- Contact Section -->
-<section class="py-16 md:py-24 bg-white dark:bg-slate-900">
+<section class="py-16 md:py-24" style="background-color: var(--surface-base);">
   <div class="container mx-auto px-4">
     <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--ink-primary);">
         Get In Touch
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+      <p class="text-lg mb-8" style="color: var(--ink-tertiary);">
         Interested in working together? Feel free to reach out!
       </p>
 
@@ -88,7 +88,7 @@ layout: default
           Send Email
         </a>
         {% if site.linkedin_username %}
-        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-white dark:bg-slate-800 text-blue-500 dark:text-blue-400 rounded-lg border-2 border-blue-500 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors duration-200">
+        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" class="btn-secondary">
           Connect on LinkedIn
         </a>
         {% endif %}
